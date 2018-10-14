@@ -1,2 +1,8 @@
 # credentials
 config.py
+
+# compiled files
+*.pyc
+
+# PyCharm crap
+.idea/*
