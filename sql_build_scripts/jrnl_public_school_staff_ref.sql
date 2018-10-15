@@ -4,7 +4,7 @@ create date: 10/14/18
 source url: https://nces.ed.gov/ccd/pubschuniv.asp
 */
 
-create table jrnl_pub_school_staff_ref (
+create table {}.jrnl_pub_school_staff_ref (
 	SURVYEAR VARCHAR(9) COMMENT 'Year corresponding to survey record',
 	FIPST VARCHAR(2) COMMENT 'American National Standards Institute (ANSI) state code',
 	STABR VARCHAR(2) COMMENT 'Postal state abbreviation code',
@@ -17,5 +17,10 @@ create table jrnl_pub_school_staff_ref (
 	ST_SCHID VARCHAR(45) COMMENT 'State school identifier',
 	NCESSCH VARCHAR(12) COMMENT 'Unique school ID',
 	SCH_NAME VARCHAR(60) COMMENT 'School name',
-	FTE FLOAT COMMENT 'Classroom teachers. Total full-time-equivalent classroom teachers. Full-time equivalency reported to the nearest hundredth; field includes two explicit decimal places.'
+	FTE FLOAT COMMENT 'Classroom teachers. Total full-time-equivalent classroom teachers. Full-time equivalency reported to the nearest hundredth; field includes two explicit decimal places.',
+  INSERTED_TS TIMESTAMP NOT NULL,
+  UPDATED_TS TIMESTAMP NOT NULL,
+
+  primary key (NCESSCH),
+  index (NCESSCH)
 );

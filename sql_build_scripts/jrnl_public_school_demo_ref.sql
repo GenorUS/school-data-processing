@@ -4,7 +4,7 @@ create date: 10/14/18
 source url: https://nces.ed.gov/ccd/pubschuniv.asp
 */
 
-create table jrnl_pub_school_demo_ref (
+create table {}.jrnl_pub_school_demo_ref (
 	SURVYEAR VARCHAR(9) COMMENT 'Year corresponding to survey record',
 	FIPST VARCHAR(2) COMMENT 'American National Standards Institute (ANSI) state code',
 	STABR VARCHAR(2) COMMENT 'Postal state abbreviation code',
@@ -295,7 +295,9 @@ create table jrnl_pub_school_demo_ref (
 	TR FLOAT COMMENT 'All Students - Two or More Races',
 	TRALM FLOAT COMMENT 'All Students - Two or More Races - Male',
 	TRALF FLOAT COMMENT 'All Students - Two or More Races - Female',
+  INSERTED_TS TIMESTAMP NOT NULL,
+  UPDATED_TS TIMESTAMP NOT NULL,
     
-    primary key (NCESSCH),
-    index (NCESSCH)
+  primary key (NCESSCH),
+  index (NCESSCH)
 );

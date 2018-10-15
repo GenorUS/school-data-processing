@@ -4,7 +4,7 @@ create date: 10/14/18
 source url: https://nces.ed.gov/ccd/pubschuniv.asp
 */
 
-create table jrnl_pub_school_characteristics_ref (
+create table {}.jrnl_pub_school_characteristics_ref (
 	SURVYEAR VARCHAR(9) COMMENT 'Year corresponding to survey record',
 	FIPST VARCHAR(2) COMMENT 'American National Standards Institute (ANSI) state code',
 	STABR VARCHAR(2) COMMENT 'Postal state abbreviation code',
@@ -25,7 +25,9 @@ create table jrnl_pub_school_characteristics_ref (
 	MAGNET_TEXT VARCHAR(14) COMMENT 'Magnet School Indicator',
 	NSLPSTATUS_TEXT VARCHAR(57) COMMENT 'National School Lunch Program (NSLP) Status (description). Represents the National School Lunch Program (NSLP) Status for the school. ',
 	NSLPSTATUS_CODE VARCHAR(3) COMMENT 'National School Lunch Program (NSLP) Status (code). Represents the National School Lunch Program (NSLP) Status for the school. ',
+  INSERTED_TS TIMESTAMP NOT NULL,
+  UPDATED_TS TIMESTAMP NOT NULL,
     
-    primary key (NCESSCH),
-    index (NCESSCH)
+  primary key (NCESSCH),
+  index (NCESSCH)
 );

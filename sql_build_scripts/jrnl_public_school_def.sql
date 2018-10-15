@@ -4,14 +4,14 @@ create date: 10/14/18
 source url: https://nces.ed.gov/ccd/pubschuniv.asp
 */
 
-create table jrnl_public_school_def (
+create table {}.jrnl_public_school_def (
 	school_year char(9) comment 'Year corresponding to survey record',
 	FIPST char(2) comment 'American National Standards Institute (ANSI) state code',
 	STATENAME varchar(44) comment 'State name',
 	ST varchar(2) comment 'State name',
 	SCH_NAME varchar(60) comment 'School name',
 	LEA_NAME varchar(60) comment 'Education Agency Name',
-    STATE_AGENCY_NO varchar(3) comment 'Identifier of the reporting state agency',
+  STATE_AGENCY_NO varchar(3) comment 'Identifier of the reporting state agency',
 	`UNION` varchar(3) comment 'Supervisory Union (SU) Identification Number. For SU administrative centers and component agencies, this is assigned by the state. If the agency is a county superintendent, this is the ANSI county number. If not reported, the field is null',
  	ST_LEAID varchar(35) comment 'State Local Education Number. State’s own ID for the education agency',
 	LEAID varchar(7) comment 'NCES Agency Identification Number',
@@ -37,7 +37,7 @@ create table jrnl_public_school_def (
 	SY_STATUS varchar(1) comment 'Start of year Status (code)',
 	SY_STATUS_TEXT varchar(16) comment 'Start of year Status (description)',
 	UPDATED_STATUS varchar(1) comment 'Updated status (code)',
-    UPDATED_STATUS_TEXT varchar(16) comment 'Updated status (description)',
+  UPDATED_STATUS_TEXT varchar(16) comment 'Updated status (description)',
 	EFFECTIVE_DATE varchar(20) comment 'Effective date of updated status',
 	SCH_TYPE varchar(1) comment 'School type (code)',
 	SCH_TYPE_TEXT varchar(28) comment 'School type (description)',
@@ -70,11 +70,13 @@ create table jrnl_public_school_def (
 	GSHI varchar(2) comment 'Grades Offered - Highest',
 	`LEVEL` varchar(16) comment 'LEA or school level',
 	IGOFFERED varchar(14) comment 'Whether any grades-offered field was adjusted',
+  INSERTED_TS TIMESTAMP NOT NULL,
+  UPDATED_TS TIMESTAMP NOT NULL,
     
-    primary key (NCESSCH),
-    index (NCESSCH),
-    index (`LEVEL`),
-    index (LSTATE),
-    index (LZIP),
-    index (LCITY)
+  primary key (NCESSCH),
+  index (NCESSCH),
+  index (`LEVEL`),
+  index (LSTATE),
+  index (LZIP),
+  index (LCITY)
 );

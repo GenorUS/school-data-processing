@@ -4,7 +4,7 @@ create date: 10/14/18
 source url: https://nces.ed.gov/surveys/pss/pssdata.asp
 */
 
-create table jrnl_private_school_def (
+create table {}.jrnl_private_school_def (
 	PFNLWT float comment 'Final Weight for School',
 	REPW1 float comment 'Replicate Weight 1',
 	REPW2 float comment 'Replicate Weight 2',
@@ -361,6 +361,8 @@ create table jrnl_private_school_def (
 	P_BLACK float comment 'Percentage of Black Students',
 	P_TR float comment 'Percentage of Students of Two or More Races',
 	STTCH_RT float comment 'Student Teacher Ratio',
+  INSERTED_TS TIMESTAMP NOT NULL,
+  UPDATED_TS TIMESTAMP NOT NULL,
     
     primary key (PPIN),
     index (PPIN),
