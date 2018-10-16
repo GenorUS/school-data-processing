@@ -6,3 +6,6 @@ config.py
 
 # PyCharm crap
 .idea/*
+
+# input files
+input_files/*
