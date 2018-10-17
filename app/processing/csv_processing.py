@@ -8,12 +8,16 @@ def csv_to_dicts(file_path, include_ts=True):
         reader = csv.DictReader(input_file, delimiter=",")
         counter = 0
         for row in reader:
+            record = {}
             counter += 1
-            if include_ts:
-                row['UPDATED_TS'] = datetime.now()
-                row['INSERTED_TS'] = datetime.now()
-            output.append(row)
-            if counter % 1000 == 0:
-                print("{} records processed".format(counter))
+            for key, val in row.items():
+                upper_key = key.upper()
+                record[upper_key] = val
+                if include_ts:
+                    record['UPDATED_TS'] = datetime.now()
+                    record['INSERTED_TS'] = datetime.now()
+            output.append(record)
+            if counter % 2000 == 0:
+                print('{} records processed'.format(counter))
     print('{} records from {}'.format(counter, file_path))
     return output

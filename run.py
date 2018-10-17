@@ -1,7 +1,7 @@
 import argparse
 from app import Slack, mysql_session, load_private_school, load_public_school_all, load_public_school_base, \
     load_public_school_membership, load_public_school_characteristics, load_public_school_eligibility, \
-    load_public_school_staff
+    load_public_school_staff, process_base_school_def
 from config import SLACK_WEBHOOK, DB_DEV, DB_PROD, PROD_FLG
 import os
 
@@ -14,6 +14,7 @@ process_ls = [
     'db-load-public-characteristics',
     'db-load-public-eligibility',
     'db-load-public-all'
+    'db-process-base-all'
 ]
 
 def get_file_path(filename):
@@ -77,6 +78,10 @@ def process_router(db_vals, process, file_path=None):
             default_files['public_elig'] = file_path
         session = mysql_session(db_vals)
         load_public_school_eligibility(session, default_files)
+
+    elif process == 'db-process-base-all':
+        session = mysql_session(db_vals)
+        process_base_school_def(session)
 
     else:
         print("unknown process -- c'mon brah")
