@@ -11,7 +11,7 @@ def mysql_session(db_dict):
                                                              db_dict['host'],
                                                              db_dict['port'])
 
-    engine = create_engine(connection_string, echo=True)
+    engine = create_engine(connection_string, echo=False)
     print('wtf2')
     Base.metadata.create_all(engine, checkfirst=True)
     DBSession = sessionmaker(bind=engine)

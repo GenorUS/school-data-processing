@@ -1,6 +1,6 @@
 from .models import mysql_session, JrnlPrivateSchool, JrnlPublicSchoolBase, JrnlPublicSchoolStaff, \
     JrnlPublicSchoolMembership, JrnlPublicSchoolEligibility, JrnlPublicSchoolCharacteristics
-from .processing import csv_to_dicts, load_base_school_def
+from .processing import *
 
 
 def create_session(db_dict):
@@ -110,4 +110,7 @@ def load_public_school_all(session, input_dict):
 
 
 def process_base_school_def(session):
+
     load_base_school_def(session)
+    load_base_school_location(session)
+    load_base_grades_offered(session)

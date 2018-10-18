@@ -1,5 +1,7 @@
 from .csv_processing import csv_to_dicts
-from .base_processing import load_base_school_def
 
+# base processing
+from .base_school_def import load_base_school_def
+from .base_school_location import load_base_school_location
+from .base_grades_offered import load_base_grades_offered
 
-# from .jrnl import jrnl_new_build, jrnl_load_public_base, jrnl_load_private_all

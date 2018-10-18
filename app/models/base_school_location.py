@@ -32,6 +32,5 @@ class BaseSchoolLocation(Base):
     latitude = Column("latitude", Float)
     longitude = Column("longitude", Float)
     out_of_state_flg = Column("out_of_state_flg", String(3))
-    data_year = Column("data_year", String(9))
     inserted_ts = Column("inserted_ts", DateTime)
     updated_ts = Column("updated_ts", DateTime)

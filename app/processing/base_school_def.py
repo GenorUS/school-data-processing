@@ -32,7 +32,9 @@ def load_base_school_def(session):
                                                  JrnlPublicSchoolBase.NCESSCH == JrnlPublicSchoolStaff.NCESSCH).all()
 
     for r in public_school_records:
+
         res = session.query(BaseSchoolDef).filter(BaseSchoolDef.school_id == r.NCESSCH).first()
+
         if res:
             res.school_nces_id = r.SCHID
             res.school_state_id = r.ST_SCHID
@@ -128,3 +130,4 @@ def load_base_school_def(session):
     session.commit()
 
     print("private school processing complete")
+
