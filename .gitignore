@@ -9,3 +9,6 @@ config.py
 
 # input files
 input_files/*
+
+# sql build scripts
+sql_build_scripts/
