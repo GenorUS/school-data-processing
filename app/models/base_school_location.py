@@ -1,15 +1,15 @@
 from sqlalchemy import Column, String, Float, Date, DateTime, Boolean
-from config import PROD_FLG, DB_PROD, DB_DEV
+# from config import PROD_FLG, DB_PROD, DB_DEV
 from .base import Base
 
 
 class BaseSchoolLocation(Base):
 
     __tablename__ = 'base_school_location'.lower()
-    if PROD_FLG:
-        __table_args__ = {'schema': DB_PROD['schema']}
-    else:
-        __table_args__ = {'schema': DB_DEV['schema']}
+    # if PROD_FLG:
+    #     __table_args__ = {'schema': DB_PROD['schema']}
+    # else:
+    #     __table_args__ = {'schema': DB_DEV['schema']}
 
     school_id = Column("school_id", String(12), primary_key=True, index=True)
     state = Column("state", String(2))

@@ -2,7 +2,7 @@ import argparse
 from app import Slack, mysql_session, load_private_school, load_public_school_all, load_public_school_base, \
     load_public_school_membership, load_public_school_characteristics, load_public_school_eligibility, \
     load_public_school_staff, process_base_school_def
-from config import SLACK_WEBHOOK, DB_DEV, DB_PROD, PROD_FLG
+from config import SLACK_WEBHOOK, DB_DEV, DB_PROD
 import os
 
 process_ls = [
@@ -86,14 +86,17 @@ def process_router(db_vals, process, file_path=None):
     else:
         print("unknown process -- c'mon brah")
 
-def get_db_vals():
-    if PROD_FLG:
+
+def get_db_vals(prod_flg):
+    if prod_flg:
         return DB_PROD
     else:
         return DB_DEV
 
 
 def run():
+
+    prod_flg = False
 
     # slack client
     slack = Slack(SLACK_WEBHOOK, 'school-data')
@@ -108,7 +111,7 @@ def run():
     print(args.e)
 
     if args.e[0] == "prod":
-        PROD_FLG = True
+        prod_flg = True
 
     action = args.a[0]
 
@@ -117,7 +120,7 @@ def run():
     else:
         filename = None
 
-    db_vals = get_db_vals()
+    db_vals = get_db_vals(prod_flg)
 
     process_router(db_vals, action, filename)
 

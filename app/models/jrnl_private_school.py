@@ -1,15 +1,15 @@
 from sqlalchemy import Column, String, Float, DateTime
-from config import PROD_FLG, DB_PROD, DB_DEV
+# from config import PROD_FLG, DB_PROD, DB_DEV
 from .base import Base
 
 
 class JrnlPrivateSchool(Base):
 
     __tablename__ = 'jrnl_private_school_def'.lower()
-    if PROD_FLG:
-        __table_args__ = {'schema': DB_PROD['schema']}
-    else:
-        __table_args__ = {'schema': DB_DEV['schema']}
+    # if PROD_FLG:
+    #     __table_args__ = {'schema': DB_PROD['schema']}
+    # else:
+    #     __table_args__ = {'schema': DB_DEV['schema']}
 
     PFNLWT = Column('PFNLWT', Float)
     REPW1 = Column('REPW1', Float)
