@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Float, DateTime
+from sqlalchemy import Column, Float, DateTime, String
 from .base import Base
 
 # https://nces.ed.gov/ipeds/datacenter/DataFiles.aspx
@@ -121,5 +121,13 @@ class JrnlCollegeOffering(Base):
     CONFNO3 = Column('CONFNO3', Float)
     SPORT4 = Column('SPORT4', Float)
     CONFNO4 = Column('CONFNO4', Float)
+    XDISABPC = Column('XDISABPC', String(1))
+    XROOMCAP = Column('XROOMCAP', String(1))
+    XMEALSWK = Column('XMEALSWK', String(1))
+    XROOMAMT = Column('XROOMAMT', String(1))
+    XBORDAMT = Column('XBORDAMT', String(1))
+    XRMBDAMT = Column('XRMBDAMT', String(1))
+    XAPPFEEU = Column('XAPPFEEU', String(1))
+    XAPPFEEG = Column('XAPPFEEG', String(1))
     INSERTED_TS = Column("INSERTED_TS", DateTime)
     UPDATED_TS = Column("UPDATED_TS", DateTime)

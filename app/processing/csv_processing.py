@@ -11,8 +11,8 @@ def csv_to_dicts(file_path, include_ts=True):
             record = {}
             counter += 1
             for key, val in row.items():
-                upper_key = key.upper()
-                record[upper_key] = val
+                upper_key = key.upper().strip()
+                record[upper_key] = val.strip()
                 if include_ts:
                     record['UPDATED_TS'] = datetime.now()
                     record['INSERTED_TS'] = datetime.now()
