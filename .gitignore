@@ -12,3 +12,6 @@ input_files/*
 
 # sql build scripts
 sql_build_scripts/
+
+# data dictionaries
+data_dictionaries/

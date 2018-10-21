@@ -5,7 +5,7 @@ from .base import Base
 
 class JrnlPrivateSchool(Base):
 
-    __tablename__ = 'jrnl_private_school_def'.lower()
+    __tablename__ = 'jrnl_private_school_base'.lower()
     # if PROD_FLG:
     #     __table_args__ = {'schema': DB_PROD['schema']}
     # else:
