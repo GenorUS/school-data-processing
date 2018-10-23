@@ -20,9 +20,12 @@ from .jrnl_college_enrollment import JrnlCollegeEnrollment
 from .jrnl_college_offering import JrnlCollegeOffering
 from .jrnl_college_program_charges import JrnlCollegeProgramCharges
 
-# base tables
+# base school tables
 from .base_school_def import BaseSchoolDef
 from .base_school_location import BaseSchoolLocation
 from .base_school_grades_offered import BaseSchoolGradesOffered
 
+# base college tables
+from .base_college_base import BaseCollegeBase
+from .base_college_location import BaseCollegeLocation
 

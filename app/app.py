@@ -211,11 +211,18 @@ def load_college_all(session, input_dict):
     load_college_offering(session, input_dict)
     print("loading jrnl_college_program_charges")
     load_college_program_charges(session, input_dict)
-
     print("college load successful!")
+
 
 def process_base_school_def(session):
 
     load_base_school_def(session)
     load_base_school_location(session)
     load_base_grades_offered(session)
+    print("base school load successful!")
+
+
+def process_base_college_all(session):
+    load_base_college_def(session)
+    load_base_college_location(session)
+    print("base college load successful!")

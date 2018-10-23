@@ -1,7 +1,7 @@
 import argparse
 from app import Slack, mysql_session, load_private_school, load_public_school_all, load_public_school_base, \
     load_public_school_membership, load_public_school_characteristics, load_public_school_eligibility, \
-    load_public_school_staff, process_base_school_def, load_college_all
+    load_public_school_staff, process_base_school_def, load_college_all, process_base_college_all
 from config import SLACK_WEBHOOK, DB_DEV, DB_PROD
 import os
 
@@ -15,7 +15,8 @@ process_ls = [
     # 'db-load-public-eligibility',
     'db-load-public-all',
     'db-load-college-all',
-    'db-process-base-all'
+    'db-process-base-school-all',
+    'db-process-base-college-all'
 ]
 
 def get_file_path(filename):
@@ -102,9 +103,13 @@ def process_router(db_vals, process, slack, filename=None):
         except Exception as e:
             slack.message('{} - college data load unsuccessful: {}'.format(db_vals['name'].upper(), e))
 
-    elif process == 'db-process-base-all':
+    elif process == 'db-process-base-school-all':
         session = mysql_session(db_vals)
         process_base_school_def(session)
+
+    elif process == 'db-process-base-college-all':
+        session = mysql_session(db_vals)
+        process_base_college_all(session)
 
     else:
         print("unknown process -- c'mon brah")
