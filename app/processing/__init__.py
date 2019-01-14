@@ -1,4 +1,5 @@
 from .csv_processing import csv_to_dicts
+from .geocoding import Geocoder
 
 # base processing
 from .base_school_def import load_base_school_def

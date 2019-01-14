@@ -1,5 +1,7 @@
 from ..models import *
 from datetime import datetime
+from .geocoding import Geocoder
+from config import MAPQUEST_API_KEY
 
 
 def load_base_school_location(session):
@@ -49,6 +51,8 @@ def load_base_school_location(session):
             res.location_zip4 = r.LZIP4
             res.out_of_state_flg = r.OUT_OF_STATE_FLAG
             res.updated_ts = datetime.now()
+            res.latitude = 
+            res.longitude = 
 
             session.add(res)
 

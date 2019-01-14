@@ -109,7 +109,7 @@ def load_base_grades_offered(session):
                                            ).all()
 
     for r in private_school_records:
-        res = session.query(BaseSchoolLocation).filter(BaseSchoolLocation.school_id == r.PPIN).first()
+        res = session.query(BaseSchoolGradesOffered).filter(BaseSchoolGradesOffered.school_id == r.PPIN).first()
 
         if res:
             res.no_grades = grade_offering_to_bool(r.P135)
@@ -134,27 +134,27 @@ def load_base_grades_offered(session):
             session.add(res)
 
         else:
-            record = BaseSchoolDef(school_id=r.PPIN,
-                                   no_grades=grade_offering_to_bool(r.P135),
-                                   g_pk_offered=grade_offering_to_bool(r.P145),
-                                   g_kg_offered=grade_offering_to_bool(r.P155),
-                                   g_1_offered=grade_offering_to_bool(r.P185),
-                                   g_2_offered=grade_offering_to_bool(r.P195),
-                                   g_3_offered=grade_offering_to_bool(r.P205),
-                                   g_4_offered=grade_offering_to_bool(r.P215),
-                                   g_5_offered=grade_offering_to_bool(r.P225),
-                                   g_6_offered=grade_offering_to_bool(r.P235),
-                                   g_7_offered=grade_offering_to_bool(r.P245),
-                                   g_8_offered=grade_offering_to_bool(r.P255),
-                                   g_9_offered=grade_offering_to_bool(r.P265),
-                                   g_10_offered=grade_offering_to_bool(r.P275),
-                                   g_11_offered=grade_offering_to_bool(r.P285),
-                                   g_12_offered=grade_offering_to_bool(r.P295),
-                                   g_lowest_offered=lowest_grade_private(r),
-                                   g_highest_offered=highest_grade_private(r),
-                                   inserted_ts=datetime.now(),
-                                   updated_ts=datetime.now()
-                                   )
+            record = BaseSchoolGradesOffered(school_id=r.PPIN,
+                                             no_grades=grade_offering_to_bool(r.P135),
+                                             g_pk_offered=grade_offering_to_bool(r.P145),
+                                             g_kg_offered=grade_offering_to_bool(r.P155),
+                                             g_1_offered=grade_offering_to_bool(r.P185),
+                                             g_2_offered=grade_offering_to_bool(r.P195),
+                                             g_3_offered=grade_offering_to_bool(r.P205),
+                                             g_4_offered=grade_offering_to_bool(r.P215),
+                                             g_5_offered=grade_offering_to_bool(r.P225),
+                                             g_6_offered=grade_offering_to_bool(r.P235),
+                                             g_7_offered=grade_offering_to_bool(r.P245),
+                                             g_8_offered=grade_offering_to_bool(r.P255),
+                                             g_9_offered=grade_offering_to_bool(r.P265),
+                                             g_10_offered=grade_offering_to_bool(r.P275),
+                                             g_11_offered=grade_offering_to_bool(r.P285),
+                                             g_12_offered=grade_offering_to_bool(r.P295),
+                                             g_lowest_offered=lowest_grade_private(r),
+                                             g_highest_offered=highest_grade_private(r),
+                                             inserted_ts=datetime.now(),
+                                             updated_ts=datetime.now()
+                                             )
             session.add(record)
 
     session.commit()

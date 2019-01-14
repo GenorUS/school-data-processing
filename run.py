@@ -2,7 +2,7 @@ import argparse
 from app import Slack, mysql_session, load_private_school, load_public_school_all, load_public_school_base, \
     load_public_school_membership, load_public_school_characteristics, load_public_school_eligibility, \
     load_public_school_staff, process_base_school_def, load_college_all, process_base_college_all
-from config import SLACK_WEBHOOK, DB_DEV, DB_PROD
+from config import SLACK_WEBHOOK, DB_DEV, DB_PROD, MAPQUEST_API_KEY, MAPQUEST_SECRET
 import os
 
 process_ls = [
