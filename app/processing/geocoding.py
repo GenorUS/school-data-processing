@@ -9,7 +9,7 @@ class Geocoder(object):
         self.api_key = api_key
 
 
-    def get_coords(self, street: str, city: str, state: str, zipcode: str) -> str:
+    def get_coords(self, street: str, city: str, state: str, zipcode: str) -> dict:
         loc_dict = {
             "street": quote(street),
             "city": quote(city),
